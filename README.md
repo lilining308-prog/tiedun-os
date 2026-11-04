@@ -5,6 +5,14 @@
 内置 KernelSU（默认激活）、「铁盾之盾」权限通道（Root > Shizuku > 无障碍三档降级），
 无 GApps，简体中文默认。
 
+## 源码仓库地址（先看这里）
+| 仓库 | 地址 | 内容 | 协议 |
+|---|---|---|---|
+| **主仓（本仓）** | <https://github.com/lilining308-prog/tiedun-os> | 安卓+上层框架改动、定制补丁、施工脚本、文档、预装 APK | GPL-3.0 |
+| **内核仓** | <https://github.com/lilining308-prog/tiedun-os-system-kernel> | 4.19 内核全量源码（含 KernelSU-Next）+ dts 板级源 | GPL-2.0 |
+
+完整编译复现：`manifests/dipper.xml`（16 仓库配方）+ `docs/BUILDING.md`。
+
 ## 硬指标
 1. Android 17（LineageOS 24.0 底包）
 2. 4.19 内核（4.19.325-CIP 系，与原包同源）
