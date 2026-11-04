@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     铁盾OS B5: 鸣谢页(规格=交接清单第三节, 四组致敬链带仓库超链接 + 署名压轴)
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="tiedun_credits_pref_screen"
+    android:title="@string/tiedun_credits_title">
+
+    <PreferenceCategory
+        android:key="tiedun_credits_cat_foundation"
+        android:title="@string/tiedun_credits_cat_foundation">
+
+        <Preference
+            android:key="tiedun_credit_lineageos"
+            android:title="@string/tiedun_credit_lineageos_name"
+            android:summary="@string/tiedun_credit_lineageos_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/LineageOS" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_aosp"
+            android:title="@string/tiedun_credit_aosp_name"
+            android:summary="@string/tiedun_credit_aosp_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://source.android.com" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_material"
+            android:title="@string/tiedun_credit_material_name"
+            android:summary="@string/tiedun_credit_material_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://m3.material.io" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="tiedun_credits_cat_kernel"
+        android:title="@string/tiedun_credits_cat_kernel">
+
+        <Preference
+            android:key="tiedun_credit_qualcomm"
+            android:title="@string/tiedun_credit_qualcomm_name"
+            android:summary="@string/tiedun_credit_qualcomm_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://developer.qualcomm.com" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_linux"
+            android:title="@string/tiedun_credit_linux_name"
+            android:summary="@string/tiedun_credit_linux_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/torvalds/linux" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_cip"
+            android:title="@string/tiedun_credit_cip_name"
+            android:summary="@string/tiedun_credit_cip_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://www.cip-project.org" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_sdm845419"
+            android:title="@string/tiedun_credit_sdm845419_name"
+            android:summary="@string/tiedun_credit_sdm845419_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/sdm845-419/android_kernel_xiaomi_sdm845_419" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_duckyduck"
+            android:title="@string/tiedun_credit_duckyduck_name"
+            android:summary="@string/tiedun_credit_duckyduck_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/duckyduckG" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_xiaomi"
+            android:title="@string/tiedun_credit_xiaomi_name"
+            android:summary="@string/tiedun_credit_xiaomi_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://www.miui.com" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="tiedun_credits_cat_port"
+        android:title="@string/tiedun_credits_cat_port">
+
+        <Preference
+            android:key="tiedun_credit_edwinmoq"
+            android:title="@string/tiedun_credit_edwinmoq_name"
+            android:summary="@string/tiedun_credit_edwinmoq_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/EdwinMoq" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_onclite"
+            android:title="@string/tiedun_credit_onclite_name"
+            android:summary="@string/tiedun_credit_onclite_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/onclitedevelopment" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_dipper_tree"
+            android:title="@string/tiedun_credit_dipper_tree_name"
+            android:summary="@string/tiedun_credit_dipper_tree_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/LineageOS/android_device_xiaomi_dipper" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="tiedun_credits_cat_tools"
+        android:title="@string/tiedun_credits_cat_tools">
+
+        <Preference
+            android:key="tiedun_credit_kernelsu"
+            android:title="@string/tiedun_credit_kernelsu_name"
+            android:summary="@string/tiedun_credit_kernelsu_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/tiann/KernelSU" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_shizuku"
+            android:title="@string/tiedun_credit_shizuku_name"
+            android:summary="@string/tiedun_credit_shizuku_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/RikkaApps/Shizuku" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_fossbrowser"
+            android:title="@string/tiedun_credit_fossbrowser_name"
+            android:summary="@string/tiedun_credit_fossbrowser_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://codeberg.org/Gaukler_Faun/FOSS_Browser" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_lawnchair"
+            android:title="@string/tiedun_credit_lawnchair_name"
+            android:summary="@string/tiedun_credit_lawnchair_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/LawnchairLauncher/lawnchair" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_extinguish"
+            android:title="@string/tiedun_credit_extinguish_name"
+            android:summary="@string/tiedun_credit_extinguish_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Moderpach/Extinguish" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_fakelockscreen"
+            android:title="@string/tiedun_credit_fakelockscreen_name"
+            android:summary="@string/tiedun_credit_fakelockscreen_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/search?q=fake-lock-screen" />
+        </Preference>
+        <Preference
+            android:key="tiedun_credit_hail"
+            android:title="@string/tiedun_credit_hail_name"
+            android:summary="@string/tiedun_credit_hail_url">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/aistra0528/Hail" />
+        </Preference>
+    </PreferenceCategory>
+
+    <!-- 署名压轴 -->
+    <Preference
+        android:key="tiedun_credits_signature"
+        android:selectable="false"
+        android:title="@string/tiedun_credits_signature_title"
+        android:summary="@string/tiedun_credits_signature_summary" />
+</PreferenceScreen>

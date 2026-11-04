@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 铁盾OS B8: 性能档位(均衡/性能/省电) -->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/tiedun_perf_title">
+
+    <ListPreference
+        android:key="tiedun_perf_mode"
+        android:title="@string/tiedun_perf_title"
+        android:summary="@string/tiedun_perf_desc"
+        android:entries="@array/tiedun_perf_entries"
+        android:entryValues="@array/tiedun_perf_values"
+        android:defaultValue="0" />
+</PreferenceScreen>

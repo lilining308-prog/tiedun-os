@@ -1,0 +1,32 @@
+// 铁盾OS B2/B11: 预装件(product 系统应用)
+android_app_import {
+    name: "TieDunShield",
+    apk: "TieDunShield.apk",
+    presigned: true,
+    product_specific: true,
+    dex_preopt: { enabled: false },
+}
+
+android_app_import {
+    name: "Shizuku",
+    apk: "Shizuku.apk",
+    presigned: true,
+    product_specific: true,
+    dex_preopt: { enabled: false },
+}
+
+android_app_import {
+    name: "FossBrowser",
+    apk: "FossBrowser.apk",
+    presigned: true,
+    product_specific: true,
+    dex_preopt: { enabled: false },
+}
+
+android_app_import {
+    name: "Lawnchair",
+    apk: "Lawnchair.apk",
+    presigned: true,
+    product_specific: true,
+    dex_preopt: { enabled: false },
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  dipper (小米 Mi 8) → LineageOS 24.0 / Android 17 — local manifest
+  定稿: 2026-11-01。依据: 官方 lineage-22.2 dipper build-manifest + 各仓库分支实测。
+  关键事实: 24.0 平台 manifest 已整体移除 sdm845 条目，本文件逐一补回；
+  qcom-caf sdm845 HAL 无 24.0 分支，采用 lineage-23.2-caf-sdm845（移植主战场）。
+-->
+<manifest>
+
+  <!-- ============ 设备树（官方树，最高 23.2，用于 24.0 平台需修断裂） ============ -->
+  <project name="LineageOS/android_device_xiaomi_dipper" path="device/xiaomi/dipper"
+           remote="github" revision="lineage-23.2" groups="local::roomservice" />
+  <project name="LineageOS/android_device_xiaomi_sdm845-common" path="device/xiaomi/sdm845-common"
+           remote="github" revision="lineage-23.2" groups="local::roomservice" />
+
+  <!-- ============ 内核 4.19 (CIP 4.19.325，与用户现用包同源) ============
+       2026-11-01 核查结论: 现用包构建点 f1f4d7fc3dc8 已被仓库强推冲成孤儿提交,
+       不可复原精确版本; 改用同血统分支尖端 perf（备选 perf-dipper /
+       perf-test31-dipper-display-los）。必要时可按 SHA 从 GitHub 单独 fetch 历史对象。 -->
+  <project name="sdm845-419/android_kernel_xiaomi_sdm845_419" path="kernel/xiaomi/sdm845_419"
+           remote="github" revision="perf" groups="local::roomservice" />
+
+  <!-- ============ vendor blobs（TheMuppets，blob 不随平台版本变，用 22.2） ============ -->
+  <project name="TheMuppets/proprietary_vendor_xiaomi_dipper" path="vendor/xiaomi/dipper"
+           remote="github" revision="lineage-22.2" groups="local::roomservice" />
+  <project name="TheMuppets/proprietary_vendor_xiaomi_sdm845-common" path="vendor/xiaomi/sdm845-common"
+           remote="github" revision="lineage-22.2" groups="local::roomservice" />
+
+  <!-- ============ 高通相机 Snap(B9 优先, 缺则 Aperture 兜底) ============ -->
+  <project name="LineageOS/android_packages_apps_Snap" path="packages/apps/Snap"
+           revision="lineage-23.2" groups="local::roomservice" />
+
+  <!-- ============ 小米 HAL（已有 24.0 分支） ============ -->
+  <project name="LineageOS/android_hardware_xiaomi" path="hardware/xiaomi"
+           remote="github" revision="lineage-24.0" />
+
+  <!-- ============ qcom-caf sdm845 HAL（无 24.0，取 23.2） ============ -->
+  <project name="LineageOS/android_hardware_qcom_audio" path="hardware/qcom-caf/sdm845/audio"
+           remote="github" revision="lineage-23.2-caf-sdm845" groups="qcom,sdm845" />
+  <project name="LineageOS/android_hardware_qcom_display" path="hardware/qcom-caf/sdm845/display"
+           remote="github" revision="lineage-23.2-caf-sdm845" groups="qcom,sdm845" />
+  <project name="LineageOS/android_hardware_qcom_media" path="hardware/qcom-caf/sdm845/media"
+           remote="github" revision="lineage-23.2-caf-sdm845" groups="qcom,sdm845" />
+
+  <!-- ============ sdm845 专用 display/gps（无 24.0，取 23.2） ============ -->
+  <project name="LineageOS/android_hardware_qcom_sdm845_display" path="hardware/qcom/sdm845/display"
+           remote="github" revision="lineage-23.2" groups="qcom,sdm845" />
+  <project name="LineageOS/android_hardware_qcom_sdm845_gps" path="hardware/qcom/sdm845/gps"
+           remote="github" revision="lineage-23.2" groups="qcom,sdm845" />
+
+  <!-- ============ 非 caf qcom 依赖（24.0 manifest 已移除，各取现存最新分支） ============ -->
+  <project name="LineageOS/android_hardware_qcom_audio" path="hardware/qcom/audio"
+           remote="github" revision="lineage-23.2" groups="pdk-qcom,qcom" />
+  <project name="LineageOS/android_hardware_qcom_bt" path="hardware/qcom/bt"
+           remote="github" revision="lineage-23.0" groups="pdk-qcom,qcom" />
+  <project name="LineageOS/android_hardware_qcom_camera" path="hardware/qcom/camera"
+           remote="github" revision="lineage-22.2" groups="pdk-qcom,qcom" />
+  <project name="LineageOS/android_hardware_qcom_display" path="hardware/qcom/display"
+           remote="github" revision="lineage-22.2" groups="pdk-qcom,qcom" />
+  <project name="LineageOS/android_hardware_qcom_data_ipacfg-mgr" path="hardware/qcom/data/ipacfg-mgr"
+           remote="github" revision="lineage-23.0" groups="pdk-qcom,qcom" />
+
+</manifest>

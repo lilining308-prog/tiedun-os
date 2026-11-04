@@ -1,0 +1,39 @@
+# TieDun OS A7: 23.2 设备树 → 24.0 平台 sepolicy 老类型名兼容映射
+# 背景: 24.0 的 device/qcom/sepolicy_vndr 把 QTI 老类型统一加 vendor_ 前缀/更名
+#   (cnd→vendor_cnd, camera_prop→exported_camera_prop, qcom_ims_prop→vendor_ims_prop,
+#    device_latency→vendor_latency_device), 本设备树(lineage-23.2 血统)仍引用旧名,
+#    checkpolicy 报 "not declared / unknown type"。
+# 修法: typealias 旧名→新名(语法: typealias <实际类型> alias <别名>;, 语义等价,
+#       规则自动落在 24.0 的新类型上)。
+# 注意: checkpolicy 要求声明先于使用, 故文件名 00- 保证在本目录(te)中最先合并。
+# 逐名映射依据: 24.0 vendor_sepolicy.conf 中的实际声明(2026-11-02 核对)。
+
+# 域(进程)
+typealias vendor_cnd alias cnd;
+typealias vendor_sensors alias sensors;
+typealias vendor_thermal-engine alias thermal-engine;
+typealias vendor_wcnss_service alias wcnss_service;
+typealias vendor_wcnss_service_exec alias wcnss_service_exec;
+typealias vendor_hal_imsrtp alias hal_imsrtp;
+typealias vendor_qtidataservices_app alias qtidataservices_app;
+
+# 属性(旧名→新名)
+# (camera_prop 不能用别名: exported_camera_prop 是 plat public 类型,
+#  versioned policy 禁止 typealiasactual, 已在源文件直接改名)
+typealias vendor_adsprpc_prop alias adsprpc_prop;
+typealias vendor_sensors_prop alias sensors_prop;
+typealias vendor_sensors_dbg_prop alias sensors_dbg_prop;
+typealias vendor_ims_prop alias qcom_ims_prop;
+
+# 设备节点/文件系统标签
+# (注: sysfs_graphics 无需别名 —— device/lineage/sepolicy/qcom/sepolicy.mk 的
+#  BOARD_SEPOLICY_M4DEFS 已自动改名 sysfs_graphics→vendor_sysfs_graphics, 加别名会自重复)
+typealias vendor_latency_device alias device_latency;
+typealias vendor_sysfs_mmc_host alias sysfs_mmc_host;
+typealias vendor_sysfs_ssr_toggle alias sysfs_ssr_toggle;
+typealias vendor_sysfs_sensors alias sysfs_sensors;
+
+# exec 与 hwservice
+typealias vendor_hal_neuralnetworks_default_exec alias hal_neuralnetworks_default_exec;
+typealias vendor_hal_datafactory_hwservice alias hal_datafactory_hwservice;
+typealias vendor_hal_iwlan_hwservice alias hal_iwlan_hwservice;

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 铁盾OS B5 字符串(简中, 用户逐行确认定稿) — 合并入 packages/apps/Settings/res/values-zh-rCN/strings.xml -->
+<resources>
+    <!-- hero -->
+    <string name="tiedun_hero_title">TieDun OS 1.0.2.4</string>
+    <string name="tiedun_hero_subtitle">Android 17</string>
+    <!-- 六组版本行(全称禁缩写) -->
+    <string name="tiedun_row_device_name">设备名称</string>
+    <string name="tiedun_row_android_version">安卓版本</string>
+    <string name="tiedun_row_lineage_version">LineageOS 底包版本</string>
+    <string name="tiedun_row_security_patch">Google 安全补丁级别</string>
+    <string name="tiedun_row_miui_baseband">MIUI 基带版本</string>
+    <string name="tiedun_row_kernel_version">内核版本</string>
+    <!-- 鸣谢 -->
+    <string name="tiedun_credits_title">鸣谢</string>
+    <string name="tiedun_credits_cat_foundation">系统根基</string>
+    <string name="tiedun_credits_cat_kernel">硬件内核</string>
+    <string name="tiedun_credits_cat_port">移植图纸</string>
+    <string name="tiedun_credits_cat_tools">组件工具</string>
+    <string name="tiedun_credit_lineageos_name">LineageOS 社区</string>
+    <string name="tiedun_credit_lineageos_url">github.com/LineageOS</string>
+    <string name="tiedun_credit_aosp_name">AOSP</string>
+    <string name="tiedun_credit_aosp_url">source.android.com</string>
+    <string name="tiedun_credit_material_name">谷歌 Material 设计团队</string>
+    <string name="tiedun_credit_material_url">m3.material.io</string>
+    <string name="tiedun_credit_qualcomm_name">高通</string>
+    <string name="tiedun_credit_qualcomm_url">developer.qualcomm.com</string>
+    <string name="tiedun_credit_linux_name">Linux</string>
+    <string name="tiedun_credit_linux_url">github.com/torvalds/linux</string>
+    <string name="tiedun_credit_cip_name">Linux CIP</string>
+    <string name="tiedun_credit_cip_url">cip-project.org</string>
+    <string name="tiedun_credit_sdm845419_name">sdm845-419</string>
+    <string name="tiedun_credit_sdm845419_url">github.com/sdm845-419</string>
+    <string name="tiedun_credit_duckyduck_name">duckyduckG</string>
+    <string name="tiedun_credit_duckyduck_url">github.com/duckyduckG</string>
+    <string name="tiedun_credit_xiaomi_name">小米（MIUI 机制参考）</string>
+    <string name="tiedun_credit_xiaomi_url">miui.com</string>
+    <string name="tiedun_credit_edwinmoq_name">EdwinMoq（一加 6T 蓝图）</string>
+    <string name="tiedun_credit_edwinmoq_url">github.com/EdwinMoq</string>
+    <string name="tiedun_credit_onclite_name">crsvt + Dhina + Hadad（红米 7 坑位）</string>
+    <string name="tiedun_credit_onclite_url">github.com/onclitedevelopment</string>
+    <string name="tiedun_credit_dipper_tree_name">infrag + bgcngm（dipper 树历代维护）</string>
+    <string name="tiedun_credit_dipper_tree_url">github.com/LineageOS/android_device_xiaomi_dipper</string>
+    <string name="tiedun_credit_kernelsu_name">KernelSU（tiann）</string>
+    <string name="tiedun_credit_kernelsu_url">github.com/tiann/KernelSU</string>
+    <string name="tiedun_credit_shizuku_name">Shizuku（Rikka）</string>
+    <string name="tiedun_credit_shizuku_url">github.com/RikkaApps/Shizuku</string>
+    <string name="tiedun_credit_fossbrowser_name">FOSS Browser</string>
+    <string name="tiedun_credit_fossbrowser_url">codeberg.org/Gaukler_Faun/FOSS_Browser</string>
+    <string name="tiedun_credit_lawnchair_name">Lawnchair</string>
+    <string name="tiedun_credit_lawnchair_url">github.com/LawnchairLauncher/lawnchair</string>
+    <string name="tiedun_credit_extinguish_name">Extinguish</string>
+    <string name="tiedun_credit_extinguish_url">github.com/Moderpach/Extinguish</string>
+    <string name="tiedun_credit_fakelockscreen_name">Fake-Lock-Screen</string>
+    <string name="tiedun_credit_fakelockscreen_url">github.com（Fake-Lock-Screen）</string>
+    <string name="tiedun_credit_hail_name">Hail（铁盾上游）</string>
+    <string name="tiedun_credit_hail_url">github.com/aistra0528/Hail</string>
+    <string name="tiedun_credits_signature_title">—— 铁盾 OS 由 lilining308 制作</string>
+    <string name="tiedun_credits_signature_summary">GitHub / Gitee · lilining308@gmail.com</string>
+</resources>

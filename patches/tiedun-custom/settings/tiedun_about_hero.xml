@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 铁盾OS B5: 关于页 hero 头图(规格=交接清单第三节) 纯黑渐变 #1C1C1E→#000 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tiedun_hero_root"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:background="@drawable/tiedun_hero_gradient"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tiedun_hero_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tiedun_hero_title"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium" />
+
+    <TextView
+        android:id="@+id/tiedun_hero_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/tiedun_hero_subtitle"
+        android:textColor="#CCFFFFFF"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif" />
+</LinearLayout>

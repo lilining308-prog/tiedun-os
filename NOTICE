@@ -1,0 +1,28 @@
+铁盾 OS NOTICE
+=============
+
+1. 许可证聚合说明
+   本软件是多许可证聚合体:
+   - 主仓 (tiedun-os): GPL-3.0
+   - 内核 (tiedun-os-kernel): GPL-2.0
+   两仓并存、分别分发, 各自保留原许可证全文与版权头, 不做许可证"传染"解释的合并。
+
+2. KernelSU (GPL-3.0) × Linux 内核 (GPL-2.0) 行业争议公示
+   KernelSU 以内核补丁/模块形式集成进 GPL-2.0 的 Linux 内核树, 在 GPL-2.0 与 GPL-3.0
+   兼容性问题上存在行业争议(同 KSU 官方与各内核发行版的通行做法)。本项目的立场:
+   - 内核源码完整公开(含 KernelSU 集成后的完整树);
+   - 保留 KernelSU 与内核的全部许可证声明与版权声明;
+   - 不对衍生使用作额外限制。
+   如权利人有异议, 请联系 lilining308@gmail.com, 我们将积极响应(移除/替换/协商)。
+
+3. 专有组件
+   高通 blobs 与 MIUI 基带固件为专有件, 不自托管、不分发:
+   - blobs 构建时从 TheMuppets 公开仓库按需拉取(构建配方见 manifests/dipper.xml);
+   - MIUI 固件仅提供官方下载链接 (bn.d.miui.com), 由用户自行下载。
+
+4. 商标
+   "Android"、"Pixel" 为 Google LLC 商标; "MIUI" 为小米商标; "小米 8" 为产品指代。
+   本项目为第三方爱好者作品, 与上述公司无隶属关系。
+
+5. 署名
+   铁盾 OS 由 lilining308 制作 · GitHub / Gitee · lilining308@gmail.com
