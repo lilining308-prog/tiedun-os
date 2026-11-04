@@ -13,6 +13,11 @@
 
 完整编译复现：`manifests/dipper.xml`（16 仓库配方）+ `docs/BUILDING.md`。
 
+📖 **帮助文档（点击直达）**：
+- [构建/部署教程（含国内镜像下载地址、网络配置）](docs/BUILDING.md)
+- [刷机教程](docs/FLASHING.md) · [更新日志](docs/CHANGELOG.md) · [已知问题](docs/KNOWN-ISSUES.md)
+- [OTA 发布体系](docs/) · [开源声明与出处清单](声明.md) · [改动清单](改动清单.md)
+
 ## 硬指标
 1. Android 17（LineageOS 24.0 底包）
 2. 4.19 内核（4.19.325-CIP 系，与原包同源）
