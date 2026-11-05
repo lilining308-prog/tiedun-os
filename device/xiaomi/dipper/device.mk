@@ -66,7 +66,8 @@ PRODUCT_PACKAGES += \
     TieDunShield \
     Shizuku \
     FossBrowser \
-    Lawnchair
+    Lawnchair \
+    TiedunUpdater
 
 # B11: 风格层独立overlay(默认壁纸) + Roboto 字体
 PRODUCT_PACKAGES += \

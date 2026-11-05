@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">铁盾系统更新</string>
+    <string name="current_version">当前版本</string>
+    <string name="latest_version">最新版本</string>
+    <string name="check_update">检查更新</string>
+    <string name="checking">正在检查…</string>
+    <string name="no_update">已是最新版本</string>
+    <string name="update_available">发现新版本 %1$s</string>
+    <string name="download">下载更新</string>
+    <string name="downloading">下载中 %1$d%%</string>
+    <string name="pause">暂停</string>
+    <string name="resume">继续下载</string>
+    <string name="verifying">正在校验 SHA-256…</string>
+    <string name="verify_failed">SHA-256 校验失败，文件已删除，请重试</string>
+    <string name="install">校验通过，重启进 Recovery 安装</string>
+    <string name="installing">正在写入 Recovery 指令…</string>
+    <string name="install_failed">写入失败：%1$s</string>
+    <string name="local_install">本地包安装</string>
+    <string name="changelog">更新日志</string>
+    <string name="check_failed">检查更新失败：%1$s</string>
+    <string name="server_unreachable">无法连接更新服务器</string>
+</resources>

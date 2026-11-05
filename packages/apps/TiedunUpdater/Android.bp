@@ -1,0 +1,13 @@
+// 铁盾OS 内置更新器「铁盾系统更新」(TiedunUpdater, 自研 GPL-3.0, 见声明.md)
+android_app {
+    name: "TiedunUpdater",
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    platform_apis: true,
+    privileged: true,
+    certificate: "platform",
+    product_specific: true,
+    dex_preopt: {
+        enabled: false,
+    },
+}

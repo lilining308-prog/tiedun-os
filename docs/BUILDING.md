@@ -25,6 +25,7 @@ repo sync -c -j8
 1. `patches/build-adaptation/` — 让 24.0 平台 + 23.2 设备树编译通过的适配
    （libheif 补齐、跨命名空间撞名改 _vendor+stem、wfd 依赖清空、
     非CAF display 树移除、device_framework_matrix 补回、内核指向 4.19 树等）
+   → `bash patches/build-adaptation/apply-build-adaptation.sh <源码树根>`
 2. `patches/wifi-captive-portal/` — captive portal 验证地址改国内节点（B1）
    并入 `device/xiaomi/dipper/overlay/`
 3. `patches/tiedun-custom/` — 铁盾定制（关于页/鸣谢/属性/预装/装卸策略等 B 系列）
@@ -34,6 +35,8 @@ repo sync -c -j8
 - 集成: KernelSU-Next 12759 + SUSFS（perf-ksu_next 分支增量, 70 文件）
 - defconfig: `vendor/sdm845-perf_defconfig` + `vendor/xiaomi/sdm845-common.config`
   + `vendor/xiaomi/dipper.config` + KSU fragment（BoardConfig TARGET_KERNEL_CONFIG）
+- 板级 DTS: 编内核前先 `bash patches/apply-a18-dts.sh`（内核仓根执行，
+  12 块 dipper dtb 落位 arch/arm64/boot/dts/xiaomi/，否则 Image.gz-dtb 无设备树）
 
 ## 4. 编译
 ```bash

@@ -94,6 +94,11 @@ echo "===== 4.6/5 B8 性能档位施工 ====="
 bash "$RELEASE/patches/tiedun-custom/apply-b8.sh" "$SRC"
 
 echo "===== 5/5 点火 ====="
-(setsid nohup bash /mnt/build/buildspace/rom-build/scripts/02-build.sh "$SRC" > /mnt/build/buildspace/logs/build-auto.log 2>&1 &)
+BUILD_SH="/mnt/build/buildspace/rom-build/scripts/02-build.sh"
+[ -f "$BUILD_SH" ] || BUILD_SH="$RELEASE/scripts/tiedun-build.sh"
+LOG_DIR="/mnt/build/buildspace/logs"
+[ -w "$LOG_DIR" ] || LOG_DIR="$TIEDUN_ROOT/logs"
+mkdir -p "$LOG_DIR"
+(setsid nohup bash "$BUILD_SH" "$SRC" > "$LOG_DIR/build-auto.log" 2>&1 &)
 sleep 3
-pgrep -f "[0]2-build" >/dev/null && echo "编译已点火: /mnt/build/buildspace/logs/build-auto.log"
+pgrep -f "tiedun-build|[0]2-build" >/dev/null && echo "编译已点火: $LOG_DIR/build-auto.log"
