@@ -32,7 +32,7 @@
 | Captive portal | `adb shell settings get global captive_portal_http_url` | 国内可达 generate_204 地址 |
 | 内核 | `adb shell uname -a` | 4.19.325 系 |
 | 关于页 | 设置 → 关于手机 | 六组版本齐全（全称）+ 鸣谢页 |
-| KernelSU | 安装 KSU 管理器 | 显示「已安装/Active」；`adb shell ls /data/adb/ksu` 存在 |
+| KernelSU | 打开预装的 KernelSU-Next 管理器 | 显示「已安装/Active」；`adb shell ls /data/adb/ksu` 存在 |
 | Shizuku | Shizuku App | 开机自启、显示运行中、已自动授权铁盾 |
 | 铁盾之盾 | 打开 App | root 通道免弹窗可用 |
 | 相机 | 打开 Snap | 预览/拍照正常 |

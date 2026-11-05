@@ -41,8 +41,8 @@
     <string name="tiedun_credit_onclite_url">github.com/onclitedevelopment</string>
     <string name="tiedun_credit_dipper_tree_name">infrag + bgcngm (dipper tree maintainers)</string>
     <string name="tiedun_credit_dipper_tree_url">github.com/LineageOS/android_device_xiaomi_dipper</string>
-    <string name="tiedun_credit_kernelsu_name">KernelSU (tiann)</string>
-    <string name="tiedun_credit_kernelsu_url">github.com/tiann/KernelSU</string>
+    <string name="tiedun_credit_kernelsu_name">KernelSU-Next (源自 tiann/KernelSU)</string>
+    <string name="tiedun_credit_kernelsu_url">github.com/KernelSU-Next/KernelSU-Next</string>
     <string name="tiedun_credit_shizuku_name">Shizuku (Rikka)</string>
     <string name="tiedun_credit_shizuku_url">github.com/RikkaApps/Shizuku</string>
     <string name="tiedun_credit_fossbrowser_name">FOSS Browser</string>

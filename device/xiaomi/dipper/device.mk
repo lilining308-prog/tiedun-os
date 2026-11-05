@@ -67,6 +67,7 @@ PRODUCT_PACKAGES += \
     Shizuku \
     FossBrowser \
     Lawnchair \
+    KernelSUNextManager \
     TiedunUpdater
 
 # B11: 风格层独立overlay(默认壁纸) + Roboto 字体

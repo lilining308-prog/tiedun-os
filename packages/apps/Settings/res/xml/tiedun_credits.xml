@@ -118,7 +118,7 @@
             android:title="@string/tiedun_credit_kernelsu_name"
             android:summary="@string/tiedun_credit_kernelsu_url">
             <intent android:action="android.intent.action.VIEW"
-                android:data="https://github.com/tiann/KernelSU" />
+                android:data="https://github.com/KernelSU-Next/KernelSU-Next" />
         </Preference>
         <Preference
             android:key="tiedun_credit_shizuku"

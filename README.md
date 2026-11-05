@@ -2,7 +2,7 @@
 
 **铁盾 OS** 是基于 LineageOS 24（Android 17）与 4.19 内核的小米 8（dipper）第三方定制系统，
 血统基底为社区第三方 UNOFFICIAL 构建 lineage-23.2-20260411-UNOFFICIAL-dipper。
-内置 KernelSU（默认激活）、「铁盾之盾」权限通道（Root > Shizuku > 无障碍三档降级），
+内置 KernelSU-Next（默认激活）、「铁盾之盾」权限通道（Root > Shizuku > 无障碍三档降级），
 无 GApps，简体中文默认。
 
 ## 源码仓库地址（先看这里）
@@ -52,7 +52,7 @@
 铁盾 OS 站在这些巨人肩上（完整鸣谢见关于手机 → 鸣谢页 / THIRD_PARTY_NOTICES.md）：
 LineageOS 社区 / AOSP / 谷歌 Material 设计团队 ｜ 高通 / Linux 与 CIP /
 sdm845-419 与 duckyduckG / 小米（MIUI 机制参考）｜ EdwinMoq / crsvt + Dhina + Hadad /
-infrag + bgcngm ｜ KernelSU(tiann) / Shizuku(Rikka) / FOSS Browser / Lawnchair /
+infrag + bgcngm ｜ KernelSU-Next(tiann 原作) / Shizuku(Rikka) / FOSS Browser / Lawnchair /
 Extinguish + Fake-Lock-Screen + Hail
 
 —— 铁盾 OS 由 lilining308 制作 · GitHub / Gitee · lilining308@gmail.com

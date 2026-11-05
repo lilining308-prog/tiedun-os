@@ -30,3 +30,11 @@ android_app_import {
     product_specific: true,
     dex_preopt: { enabled: false },
 }
+
+android_app_import {
+    name: "KernelSUNextManager",
+    apk: "KernelSUNextManager.apk",
+    presigned: true,
+    product_specific: true,
+    dex_preopt: { enabled: false },
+}

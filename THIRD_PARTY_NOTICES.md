@@ -49,7 +49,7 @@
 鸣谢: LineageOS 社区 / AOSP / 谷歌 Material 设计团队 ｜ 高通 / Linux 与 CIP /
 sdm845-419 与 duckyduckG / 小米(MIUI 机制参考) ｜ EdwinMoq(一加6T蓝图) /
 crsvt + Dhina + Hadad(红米7坑位) / infrag + bgcngm(dipper树历代维护) ｜
-KernelSU(tiann) / Shizuku(Rikka) / FOSS Browser / Lawnchair /
+KernelSU-Next(tiann 原作) / Shizuku(Rikka) / FOSS Browser / Lawnchair /
 Extinguish + Fake-Lock-Screen + Hail(铁盾上游)
 
 铁盾 OS 由 lilining308 制作 · GitHub / Gitee · lilining308@gmail.com

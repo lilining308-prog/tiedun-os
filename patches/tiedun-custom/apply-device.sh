@@ -19,6 +19,7 @@ cp "$PREBUILTS/tiedun-shield-v3.0-adb.apk" "$D/tiedun-apk/TieDunShield.apk"
 cp "$PREBUILTS/shizuku-v13.6.0.apk"       "$D/tiedun-apk/Shizuku.apk"
 cp "$PREBUILTS/foss-browser.apk"          "$D/tiedun-apk/FossBrowser.apk"
 cp "$PREBUILTS/lawnchair-15.0.0-beta3.apk" "$D/tiedun-apk/Lawnchair.apk"
+cp "$PREBUILTS/KernelSU-Next-Manager-v3.4.2.apk" "$D/tiedun-apk/KernelSUNextManager.apk"
 cat > "$D/tiedun-apk/Android.bp" <<'BPEOF'
 // 铁盾OS B2/B11: 预装件(product 系统应用)
 android_app_import {
@@ -48,6 +49,14 @@ android_app_import {
 android_app_import {
     name: "Lawnchair",
     apk: "Lawnchair.apk",
+    presigned: true,
+    product_specific: true,
+    dex_preopt: { enabled: false },
+}
+
+android_app_import {
+    name: "KernelSUNextManager",
+    apk: "KernelSUNextManager.apk",
     presigned: true,
     product_specific: true,
     dex_preopt: { enabled: false },
@@ -115,7 +124,8 @@ PRODUCT_PACKAGES += \\
     TieDunShield \\
     Shizuku \\
     FossBrowser \\
-    Lawnchair
+    Lawnchair \\
+    KernelSUNextManager
 
 # B11: 风格层独立overlay(默认壁纸) + Roboto 字体
 PRODUCT_PACKAGES += \\
