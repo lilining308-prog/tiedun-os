@@ -581,14 +581,13 @@ class AdminHandler(BaseHTTPRequestHandler):
                     save_registry(cfg)
             log("撤回推送: %s" % name)
             return self._send(200, "revoked")
-        if act == "/admin/cleanup":       # 删除: 彻底删包
+        if act == "/admin/cleanup":       # 删除: 彻底删包(文件+登记一并移除)
             try:
                 os.remove(os.path.join(cfg["packages_dir"], name))
             except OSError:
                 pass
             with _registry_lock:
-                _registry[name]["status"] = "deleted"
-                _registry[name]["scheduled_at"] = 0
+                _registry.pop(name, None)
                 save_registry(cfg)
             log("删除: %s" % name)
             return self._send(200, "deleted")
@@ -645,7 +644,12 @@ h2{margin-top:1.6em;font-size:1.05em}
 <th>首次在线</th><th>最后在线</th><th>检查</th><th>下载</th><th>IP</th></tr></table>
 <p style="color:#888">更新器开机 / 每6h / 手动检查时自动上报(机型·版本·设备ID)，首次联网即入列。</p></div>
 <div id="up"><input type="file" id="file" accept=".zip">
-<button onclick="upload()">上传</button><span id="upmsg"></span></div>
+<button onclick="upload()">上传</button>
+<label style="margin-left:.6em"><input type="checkbox" id="autopush" checked>上传完成后立即推送</label>
+<span id="upmsg"></span>
+<div id="bar" style="display:none;background:#333;border-radius:6px;height:14px;width:340px;margin-top:.5em">
+<div id="barfill" style="background:#2a2;height:14px;border-radius:6px;width:0%"></div></div>
+<b id="uppct"></b></div>
 <table id="tbl"><tr><th>包</th><th>大小</th><th>状态</th><th>推送/定时</th><th>剩余</th><th>操作</th></tr></table>
 <script>
 const NAMES={'dipper':'小米8'};
@@ -688,7 +692,8 @@ async function refresh(){
     }
     if(e.status==='pushed'){
       ops='<button onclick="act(\\'pushnow\\',\\''+e.name+'\\')">立马推送(续期)</button>'+
-          '<button onclick="act(\\'revoke\\',\\''+e.name+'\\')">撤回推送</button>';
+          '<button onclick="act(\\'revoke\\',\\''+e.name+'\\')">撤回推送</button>'+
+          '<button onclick="act(\\'cleanup\\',\\''+e.name+'\\')">删除</button>';
     }
     if(e.status==='revoked'||e.status==='expired'||e.status==='deleted'){
       ops='<button onclick="act(\\'cleanup\\',\\''+e.name+'\\')">删除</button>';
@@ -711,13 +716,33 @@ async function schedulePush(name){
   await fetch('/admin/schedule?name='+encodeURIComponent(name)+'&at='+at,{method:'POST'});
   refresh();
 }
-async function upload(){
+function upload(){
   const f=document.getElementById('file').files[0];
-  if(!f)return;
-  document.getElementById('upmsg').textContent=' 上传中…(大包需几秒到几十秒)';
-  const r=await fetch('/admin/upload?name='+encodeURIComponent(f.name),{method:'PUT',body:f});
-  document.getElementById('upmsg').textContent=r.ok?' ✅ 上传完成, 可点推送':' ❌ 失败';
-  refresh();
+  if(!f){alert('先选文件');return;}
+  const bar=document.getElementById('bar'),fill=document.getElementById('barfill'),
+        pct=document.getElementById('uppct'),msg=document.getElementById('upmsg');
+  bar.style.display='block'; fill.style.width='0%'; pct.textContent=' 0%';
+  msg.textContent=' 上传中…';
+  const x=new XMLHttpRequest();
+  x.open('PUT','/admin/upload?name='+encodeURIComponent(f.name));
+  x.upload.onprogress=e=>{ if(e.lengthComputable){
+    const p=Math.round(e.loaded/e.total*100);
+    fill.style.width=p+'%'; pct.textContent=' '+p+'%'; } };
+  x.onload=async()=>{
+    if(x.status>=200&&x.status<300){
+      pct.textContent=' ✅';
+      if(document.getElementById('autopush').checked){
+        msg.textContent=' 上传完成, 立即推送中…';
+        await fetch('/admin/push?name='+encodeURIComponent(f.name),{method:'POST'});
+        msg.textContent=' ✅ 已上传并推送(公网可见, 48h 窗口)';
+      }else{
+        msg.textContent=' ✅ 上传完成, 可点推送';
+      }
+    }else{ msg.textContent=' ❌ 上传失败 HTTP '+x.status; }
+    refresh();
+  };
+  x.onerror=()=>{ msg.textContent=' ❌ 网络错误'; };
+  x.send(f);
 }
 refresh();refreshDevices();setInterval(()=>{refresh();refreshDevices();},5000);
 </script></body></html>"""
