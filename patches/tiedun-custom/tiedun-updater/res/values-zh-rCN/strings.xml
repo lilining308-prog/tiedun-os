@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 铁盾OS C6: 铁盾系统更新 简中文案 -->
+<resources>
+    <string name="app_name">铁盾系统更新</string>
+    <string name="title_current">当前版本</string>
+    <string name="label_server_url">更新服务器</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_check">检查更新</string>
+    <string name="btn_install">下载并安装</string>
+    <string name="btn_download">仅下载</string>
+    <string name="btn_local_install">安装本地更新包</string>
+    <string name="status_checking">正在检查更新…</string>
+    <string name="status_downloading">正在下载…</string>
+    <string name="status_verifying">正在校验…</string>
+    <string name="status_installing">正在安装…设备将重启到恢复模式</string>
+    <string name="status_idle">就绪</string>
+    <string name="msg_no_update">未发现新版本</string>
+    <string name="msg_update_found">发现新版本</string>
+    <string name="msg_sha_fail">SHA-256 校验失败</string>
+    <string name="msg_sig_fail">签名校验失败：非铁盾OS官方签名的更新包</string>
+    <string name="msg_net_fail">网络错误</string>
+    <string name="msg_saved">服务器地址已保存</string>
+    <string name="msg_install_confirm">设备将重启到恢复模式刷入更新，是否继续？</string>
+    <string name="msg_install_failed">安装失败</string>
+    <string name="msg_verify_fail">更新包签名校验未通过(重启后仍可尝试安装)</string>
+    <string name="btn_confirm">安装</string>
+    <string name="btn_cancel">取消</string>
+    <string name="notif_channel_download">更新下载</string>
+    <string name="notif_channel_check">更新检查</string>
+</resources>
