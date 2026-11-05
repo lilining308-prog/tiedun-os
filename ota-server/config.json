@@ -1,0 +1,10 @@
+{
+  "port": 8848,
+  "host": "0.0.0.0",
+  "zips_dir": "/mnt/data/小米8铁盾os/刷机包",
+  "public_base_url": "http://192.168.31.6:8848",
+  "devices": ["dipper"],
+  "version": "24.0",
+  "type": "UNOFFICIAL",
+  "state_file": "/mnt/data/tiedun-ota/state.json"
+}

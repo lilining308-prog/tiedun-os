@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 铁盾OS C6: 铁盾系统更新 默认(英文)文案 -->
+<resources>
+    <string name="app_name">TieDun Updater</string>
+    <string name="title_current">Current build</string>
+    <string name="label_server_url">Update server</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_check">Check for updates</string>
+    <string name="btn_install">Download &amp; install</string>
+    <string name="btn_download">Download only</string>
+    <string name="btn_local_install">Install local package</string>
+    <string name="status_checking">Checking for updates…</string>
+    <string name="status_downloading">Downloading…</string>
+    <string name="status_verifying">Verifying…</string>
+    <string name="status_installing">Installing… device will reboot to recovery</string>
+    <string name="status_idle">Idle</string>
+    <string name="msg_no_update">No updates found</string>
+    <string name="msg_update_found">New build available</string>
+    <string name="msg_sha_fail">SHA-256 verification failed</string>
+    <string name="msg_sig_fail">Signature verification failed: not signed by the official TieDun OTA key</string>
+    <string name="msg_net_fail">Network error</string>
+    <string name="msg_saved">Server URL saved</string>
+    <string name="msg_install_confirm">The device will reboot into recovery and flash the update. Continue?</string>
+    <string name="msg_install_failed">Install failed</string>
+    <string name="msg_verify_fail">Package signature verification failed (may still install after reboot)</string>
+    <string name="btn_confirm">Install</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="notif_channel_download">Update download</string>
+    <string name="notif_channel_check">Update check</string>
+</resources>
