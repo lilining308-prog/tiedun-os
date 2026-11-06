@@ -37,6 +37,51 @@ public class CheckReceiver extends BroadcastReceiver {
         return url.replace("{device}", device);
     }
 
+    /**
+     * 内置双通道(铁盾更新器): 主选 IPv6 直连, 穿透为备选。
+     * 检测到 IPv6 可达时走直连, 否则/失败自动降级穿透。
+     */
+    public static final String SERVER_IPV6 =
+            "http://[2409:8a55:40b0:c421::192]:8848/api/v2/devices/{device}/builds";
+    public static final String SERVER_TUNNEL =
+            "https://home-195.tail10a661.ts.net/api/v2/devices/{device}/builds";
+
+    /** 候选通道(按优先级): 自定义 > IPv6 直连 > 穿透 */
+    public static java.util.List<String> channelCandidates(Context context) {
+        java.util.ArrayList<String> out = new java.util.ArrayList<>();
+        String custom = serverUrl(context);
+        String device = SystemProperties.get("ro.lineage.device",
+                SystemProperties.get("ro.product.device", "dipper"));
+        String ipv6 = SERVER_IPV6.replace("{device}", device);
+        String tunnel = SERVER_TUNNEL.replace("{device}", device);
+        if (custom.length() > 0 && !out.contains(custom)) {
+            out.add(custom);
+        }
+        if (!out.contains(ipv6)) {
+            out.add(ipv6);
+        }
+        if (!out.contains(tunnel)) {
+            out.add(tunnel);
+        }
+        return out;
+    }
+
+    /** IPv6 直连是否可用(短超时探测, 需在工作线程调用) */
+    public static boolean ipv6Ready() {
+        try {
+            java.net.Socket s = new java.net.Socket();
+            try {
+                s.connect(new java.net.InetSocketAddress(
+                        java.net.InetAddress.getByName("2409:8a55:40b0:c421::192"), 8848), 2500);
+                return true;
+            } finally {
+                s.close();
+            }
+        } catch (Throwable t) {
+            return false;
+        }
+    }
+
     /** 检查/上报 URL: 附加机型·版本·设备ID(服务端据此统计装机名单) */
     public static String reportUrl(Context context) {
         return appendReport(context, serverUrl(context));

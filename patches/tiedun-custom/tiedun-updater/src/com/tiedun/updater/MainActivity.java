@@ -39,6 +39,7 @@ public class MainActivity extends Activity {
 
     private TextView mInfo;
     private TextView mStatus;
+    private TextView mNotice;
     private ProgressBar mProgress;
     private LinearLayout mResults;
     private EditText mUrlEdit;
@@ -67,6 +68,7 @@ public class MainActivity extends Activity {
                     mStatus.setText(R.string.status_idle);
                     mProgress.setProgress(0);
                     mProgress.setIndeterminate(false);
+                    mNotice.setVisibility(View.GONE);
                 } else if ("installing".equals(state)) {
                     mStatus.setText(R.string.status_installing);
                 } else if ("sha_fail".equals(state)) {
@@ -193,6 +195,14 @@ public class MainActivity extends Activity {
         mProgress.setMax(100);
         root.addView(mProgress);
 
+        mNotice = new TextView(this);
+        mNotice.setPadding(0, dp(8), 0, 0);
+        mNotice.setTextSize(12);
+        mNotice.setTextColor(0xff888888);
+        mNotice.setText(R.string.msg_bandwidth);
+        mNotice.setVisibility(View.GONE);
+        root.addView(mNotice);
+
         mResults = new LinearLayout(this);
         mResults.setOrientation(LinearLayout.VERTICAL);
         root.addView(mResults);
@@ -219,33 +229,38 @@ public class MainActivity extends Activity {
     }
 
     private void checkUpdates() {
-        final String url = CheckReceiver.appendReport(this, mUrlEdit.getText().toString().trim());
-        if (TextUtils.isEmpty(url)) {
-            toast(R.string.msg_net_fail);
-            return;
-        }
         mResults.removeAllViews();
         mStatus.setText(R.string.status_checking);
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    final List<OtaClient.Entry> entries = OtaClient.fetch(url);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            showEntries(entries);
-                        }
-                    });
-                } catch (Throwable t) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
+                List<OtaClient.Entry> got = null;
+                String used = null;
+                for (String base : CheckReceiver.channelCandidates(MainActivity.this)) {
+                    try {
+                        got = OtaClient.fetch(CheckReceiver.appendReport(MainActivity.this, base));
+                        used = base;
+                        break;
+                    } catch (Throwable ignored) {
+                        // 该通道失败, 降级到下一候选(穿透备选)
+                    }
+                }
+                final List<OtaClient.Entry> entries = got;
+                final String active = used;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (entries == null) {
                             mStatus.setText(R.string.msg_net_fail);
                             toast(R.string.msg_net_fail);
+                            return;
                         }
-                    });
-                }
+                        if (active != null) {
+                            mUrlEdit.setText(active);
+                        }
+                        showEntries(entries);
+                    }
+                });
             }
         }, "tiedun-ui-check").start();
     }
@@ -327,6 +342,8 @@ public class MainActivity extends Activity {
         i.putExtra(DownloadService.EXTRA_INSTALL, install);
         startService(i);
         mStatus.setText(R.string.status_downloading);
+        // 排队/下载中提示: 作者宽带有限, 一次只服务一位
+        mNotice.setVisibility(View.VISIBLE);
     }
 
     private void pickLocal() {
@@ -391,12 +408,17 @@ public class MainActivity extends Activity {
 
     private void confirmLocalInstall(final File dest) {
         boolean trusted = Installer.verifySignedByOtaCert(dest);
-        String msg = getString(R.string.msg_install_confirm);
         if (!trusted) {
-            msg = getString(R.string.msg_sig_fail) + "\n\n" + msg;
+            // 铁盾更新器: 本地包必须是本人(OTA 证书)签名, 否则硬拒, 不给安装入口
+            mStatus.setText(R.string.msg_sig_fail);
+            new AlertDialog.Builder(this)
+                    .setMessage(R.string.msg_sig_reject)
+                    .setPositiveButton(R.string.btn_confirm, null)
+                    .show();
+            return;
         }
         new AlertDialog.Builder(this)
-                .setMessage(msg)
+                .setMessage(R.string.msg_install_confirm)
                 .setPositiveButton(R.string.btn_confirm, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

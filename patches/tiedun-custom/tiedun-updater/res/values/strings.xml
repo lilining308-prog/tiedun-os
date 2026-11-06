@@ -27,4 +27,6 @@
     <string name="btn_cancel">Cancel</string>
     <string name="notif_channel_download">Update download</string>
     <string name="notif_channel_check">Update check</string>
+    <string name="msg_bandwidth">The author\'s bandwidth is limited, so downloads are served one at a time. Please be patient. For a faster download, grab the latest version from the repository and update manually.</string>
+    <string name="msg_sig_reject">Signature verification failed: this package is not signed by the author. Install rejected.</string>
 </resources>

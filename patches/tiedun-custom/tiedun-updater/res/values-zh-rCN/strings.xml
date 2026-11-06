@@ -27,4 +27,6 @@
     <string name="btn_cancel">取消</string>
     <string name="notif_channel_download">更新下载</string>
     <string name="notif_channel_check">更新检查</string>
+    <string name="msg_bandwidth">本作者的宽带不高，只能让你们一个一个下，请你谅解。如果想要更快的话，直接去仓库下载最新版手动更新。</string>
+    <string name="msg_sig_reject">签名验证失败：这不是本人签名的更新包，已拒绝安装。</string>
 </resources>
