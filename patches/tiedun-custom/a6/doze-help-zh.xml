@@ -1,0 +1,3 @@
+    <!-- TieDun OS A6: Doze 帮助对话框(简中) -->
+    <string name="doze_settings_help_title">息屏显示</string>
+    <string name="doze_settings_help_text">开启息屏显示后，无需触碰手机即可查看通知和时间。\n\n拿起手机、在近距离传感器上方挥手，或将手机从口袋中取出，均可短暂点亮屏幕。</string>

@@ -1,0 +1,17 @@
+{
+  "port": 8848,
+  "admin_port": 8849,
+  "host": "0.0.0.0",
+  "public_base_url": "auto",
+  "devices": [
+    "dipper"
+  ],
+  "version": "24.0",
+  "type": "UNOFFICIAL",
+  "admin_user": "admin",
+  "rate_limit_mbps": 20,
+  "publish_window_hours": 48,
+  "max_queue_wait_minutes": 30,
+  "packages_dir": "/path/to/packages",
+  "registry_file": "/path/to/registry.json"
+}

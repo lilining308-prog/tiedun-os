@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     铁盾OS B5: 关于手机页(整页替换, 规格=交接清单第三节图纸, 用户逐行确认定稿)
+     六组版本行全称禁缩写 + 鸣谢入口。原 AOSP my_device_info.xml 行项按定稿图纸裁剪。
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="my_device_info_pref_screen"
+    android:title="@string/about_settings">
+
+    <!-- hero 头图: 黑渐变 + TieDun OS 1.0.2.4 大字 + Android 17 副题 -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="my_device_info_header"
+        android:layout="@layout/tiedun_about_hero"
+        android:selectable="false"
+        settings:isPreferenceVisible="true"/>
+
+    <PreferenceCategory
+        android:key="basic_info_category"
+        android:selectable="false">
+
+        <!-- 设备名称 -->
+        <com.android.settings.widget.ValidatedEditTextPreference
+            android:key="device_name"
+            android:order="1"
+            android:title="@string/tiedun_row_device_name"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.DeviceNamePreferenceController"
+            settings:enableCopying="true"/>
+
+        <!-- 安卓版本 -->
+        <Preference
+            android:key="tiedun_android_version"
+            android:order="2"
+            android:title="@string/tiedun_row_android_version"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.tiedun.TieDunStaticInfoController"
+            settings:enableCopying="true"/>
+
+        <!-- LineageOS 底包版本 -->
+        <Preference
+            android:key="tiedun_lineage_version"
+            android:order="3"
+            android:title="@string/tiedun_row_lineage_version"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.tiedun.TieDunStaticInfoController"
+            settings:enableCopying="true"/>
+
+        <!-- Google 安全补丁级别 -->
+        <Preference
+            android:key="tiedun_security_patch"
+            android:order="4"
+            android:title="@string/tiedun_row_security_patch"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.tiedun.TieDunStaticInfoController"
+            settings:enableCopying="true"/>
+
+        <!-- MIUI 基带版本 -->
+        <Preference
+            android:key="tiedun_miui_baseband"
+            android:order="5"
+            android:title="@string/tiedun_row_miui_baseband"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.tiedun.TieDunStaticInfoController"
+            settings:enableCopying="true"/>
+
+        <!-- 内核版本 -->
+        <Preference
+            android:key="tiedun_kernel_version"
+            android:order="6"
+            android:title="@string/tiedun_row_kernel_version"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.tiedun.TieDunStaticInfoController"
+            settings:enableCopying="true"/>
+    </PreferenceCategory>
+
+    <!-- 鸣谢 → -->
+    <Preference
+        android:key="tiedun_credits"
+        android:order="10"
+        android:title="@string/tiedun_credits_title"
+        android:fragment="com.android.settings.deviceinfo.tiedun.TieDunCreditsFragment"
+        settings:enableCopying="false"/>
+</PreferenceScreen>

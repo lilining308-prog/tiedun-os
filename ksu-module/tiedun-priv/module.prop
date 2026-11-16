@@ -1,0 +1,6 @@
+id=tiedun-priv
+name=铁盾内核专有通道
+version=v1.0.2.4
+versionCode=10204
+author=lilining308
+description=KSU白名单预置(铁盾之盾/免弹窗root) + Shizuku root拉起/开机自启/自动授权铁盾。铁盾OS 1.0.2.4 内置模块。

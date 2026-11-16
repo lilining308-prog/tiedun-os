@@ -1,0 +1,13 @@
+    <!-- 铁盾OS B8: 性能档位 -->
+    <string name="tiedun_perf_title">性能档位</string>
+    <string name="tiedun_perf_desc">均衡 / 性能 / 省电 三档调度，切换即时生效并持久保存</string>
+    <string-array name="tiedun_perf_entries">
+        <item>均衡</item>
+        <item>性能</item>
+        <item>省电</item>
+    </string-array>
+    <string-array name="tiedun_perf_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>

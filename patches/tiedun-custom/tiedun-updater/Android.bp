@@ -1,0 +1,15 @@
+// 铁盾OS C6: 铁盾系统更新(内置更新器, 自研) — GPL-3.0
+// 安装走 RecoverySystem.installPackage(recovery 刷入), 服务端=本机 OTA 服务(见 docs/OTA.md)
+android_app {
+    name: "TiedunUpdater",
+
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    manifest: "AndroidManifest.xml",
+
+    platform_apis: true,
+    privileged: true,
+    privapp_allowlist: "com.tiedun.updater.xml",
+    certificate: "platform",
+    system_ext_specific: true,
+}

@@ -1,0 +1,7 @@
+
+__pycache__/
+# 本地部署配置与密钥，禁止提交
+ota-server/config.json
+ota.env
+ota.log
+

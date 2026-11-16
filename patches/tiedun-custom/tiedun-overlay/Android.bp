@@ -1,0 +1,12 @@
+// 铁盾OS B11: 风格层独立 overlay(默认壁纸等), 可整体替换
+android_app {
+    name: "TieDunFrameworkOverlay",
+    manifest: "AndroidManifest.xml",
+    resource_dirs: ["res"],
+    product_specific: true,
+    sdk_version: "current",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+}

@@ -1,0 +1,24 @@
+# 铁盾OS B3: tiedun-priv KSU 模块预置 + 同启(KSU 白名单/Shizuku root通道)
+# 用 init 内建 copy/chmod 完成预置(不引新域); service.sh 交 KSU ksud 每次开机执行,
+# 首启由本 rc 的 oneshot 兜底执行一遍(SELinux permissive 下生效; enforcing 下次启生效)。
+
+on post-fs-data
+    mkdir /data/adb 0700 root root
+    mkdir /data/adb/ksu 0700 root root
+    mkdir /data/adb/ksu/modules 0755 root root
+    mkdir /data/adb/ksu/modules/tiedun-priv 0755 root root
+    copy /product/etc/tiedun/module.prop /data/adb/ksu/modules/tiedun-priv/module.prop
+    copy /product/etc/tiedun/service.sh /data/adb/ksu/modules/tiedun-priv/service.sh
+    copy /product/etc/tiedun/tiedun-ksu-grant /data/adb/ksu/modules/tiedun-priv/tiedun-ksu-grant
+    chmod 0755 /data/adb/ksu/modules/tiedun-priv/service.sh
+    chmod 0755 /data/adb/ksu/modules/tiedun-priv/tiedun-ksu-grant
+
+service tiedun_priv_run /system/bin/sh /data/adb/ksu/modules/tiedun-priv/service.sh
+    class late_start
+    user root
+    group root system
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start tiedun_priv_run

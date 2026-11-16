@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WiFi 联网验证本地化：解决国内连 WiFi 老是提示"网络异常/受限" -->
+<resources>
+    <!-- 主验证走小米（国内可达），备用走腾讯 -->
+    <string name="config_captive_portal_http_url">http://connect.rom.miui.com/generate_204</string>
+    <string name="config_captive_portal_https_url">https://connect.rom.miui.com/generate_204</string>
+    <string name="config_captive_portal_http_fallback_url">http://wifi.qq.com/generate_204</string>
+    <string name="config_captive_portal_https_fallback_url">https://wifi.qq.com/generate_204</string>
+    <string name="config_captive_portal_other_fallback_urls">http://connect.rom.miui.com/generate_204,http://wifi.qq.com/generate_204</string>
+    <!-- 移动网络验证同样本地化 -->
+    <string name="config_captive_portal_mobile_http_url">http://connect.rom.miui.com/generate_204</string>
+    <string name="config_captive_portal_mobile_https_url">https://connect.rom.miui.com/generate_204</string>
+</resources>
