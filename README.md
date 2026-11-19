@@ -12,7 +12,7 @@
 
 ---
 
-# 铁盾 OS 1.0.2.4（TieDun OS）
+# 铁盾 OS 1.0.2.4（TieDun OS）不维护了
 
 **铁盾 OS** 是基于 LineageOS 24（Android 17）与 4.19 内核的小米 8（dipper）第三方定制系统，
 血统基底为社区第三方 UNOFFICIAL 构建 lineage-23.2-20260411-UNOFFICIAL-dipper。
